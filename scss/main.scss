@@ -1,0 +1,185 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.swiper-container {
+    width:100%;
+    height:100vh;
+}
+
+.swiper-slide:nth-child(1) {
+    background-color:#ff5e5e
+}
+.swiper-slide:nth-child(2) {
+    background-color: #ffef5e
+}
+.swiper-slide:nth-child(3) {
+    background-color: #5e89ff
+}
+
+.swiper-slide {
+    text-align:center;
+    padding-top: 200px;
+
+}
+
+h1 {
+    font-size: 100px;
+    color:#fff;
+}
+
+.swiper-pagination {
+    bottom: 150px!important;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+    position:relative;
+    width:auto;
+    height:auto;
+    border-radius:0;
+    opacity:1;
+    color:#fff;
+    background-color:transparent;
+    font-size:20px;
+    font-weight:500;
+    margin: 0 50px !important;
+}
+
+.swiper-pagination .swiper-pagination-bullet:before {
+    content:'';
+    position:absolute;
+    bottom: -15px;
+    left:0;
+    width:100%;
+    height:3px;
+    background-color:#fff;
+    opacity:0.5;
+}
+
+.swiper-pagination .swiper-pagination-bullet:after{
+    content:'';
+    position:absolute;
+    bottom:-15px;
+    left:0;
+    width:0;
+    height:3px;
+    background-color: #fff;
+}
+
+.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active:after {
+    width:100%;
+    animation: paginationLine 5s linear;
+}
+
+@keyframes paginationLine {
+    from {
+        width:0;
+    }
+}
+
+.img-group {
+    position:absolute;
+    width:100%;height:100%;
+    left:100%;
+    top:0;
+    transition: all cubic-beier(.97,0.02,0.02,0.98) 2s;
+}
+.swiper-slide img {
+    position: absolute;
+    transition: all linear .1s;
+    animation: rotateReversed linear 3s;
+}
+
+@keyframes rotateReversed {
+    to{
+        transform: rotate(-360deg)
+    }
+}
+
+.swiper-slide.swiper-slide-active img {
+    animation: rotate linear 100s infinite
+}
+@keyframes rotate {
+    to {
+        transform: rotate(720deg)
+    }
+}
+
+.swiper-slide h1 {
+    position:absolute;
+    text-align:center;
+    width:100%;
+    left:100%;
+    position:relative;
+    z-index:2;
+    
+    transition: all cubic-bezier(0.66,0.51,.02,.98) 2s;
+}
+
+.donut1 {
+    left:0;
+    top:100px;
+}
+
+.donut2 {
+    left: 620px;
+    top: 110px;
+}
+.donut3 {
+    left:400px;
+    top:270px;
+    z-index:-1
+}
+.donut4 {
+    left:780px;
+    top:270px;
+}
+
+.apple1 {
+    left: 0;
+    top: 100px;
+}
+
+.apple2 {
+    left: 620px;
+    top: 110px;
+}
+
+.apple3 {
+    left: 400px;
+    top: 270px;
+    z-index: -1
+}
+
+.apple4 {
+    left: 780px;
+    top: 270px;
+}
+
+
+.bread1 {
+    left: 0;
+    top: 100px;
+}
+
+.bread2 {
+    left: 620px;
+    top: 110px;
+}
+
+.bread3 {
+    left: 400px;
+    top: 270px;
+
+    z- .apple4 {
+        left: 780px;
+        top: 270px;
+    }
+}
+
+
+.img-single {
+    max-width:200px;
+}

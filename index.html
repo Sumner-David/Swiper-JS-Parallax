@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+    <!-- Slider main container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+
+                <h1>I Love Donuts</h1>
+                <div class="img-group">
+                    <img data-val="3" class="donut1 img-single" src="images/donut.png" alt="">
+                    <img data-val="-8" class="donut2 img-single" src="images/donut.png" alt="">
+                    <img data-val="37" class="donut3 img-single" src="images/donut.png" alt="">
+                    <img data-val="-2" class="donutj4 img-single" src="images/donut.png" alt="">
+                </div>
+
+            </div>
+            
+            
+            <div class="swiper-slide">
+
+                <h1>I Love Apples</h1>
+                <div class="img-group">
+                    <img data-val="2" class="apple1 img-single" src="images/apple.png" alt="">
+                    <img data-val="-5" class="apple2 img-single" src="images/apple.png" alt="">
+                    <img data-val="8" class="apple3 img-single" src="images/apple.png" alt="">
+                    
+                </div>
+
+            </div>
+
+            <div class="swiper-slide">
+
+                <h1>I Love Bread</h1>
+                <div class="img-group">
+                    <img data-val="2" class="bread1 img-single" src="images/bread.png" alt="">
+                    <img data-val="3" class="bread2 img-single" src="images/bread.png" alt="">
+                    <img data-val="-6" class="bread3 img-single" src="images/bread.png" alt="">
+                    
+                </div>
+
+            </div>
+            ...
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+
+        $(".swiper-slide").mousemove(function(event){
+            $(".img-single").each(function() {
+                var layers = $(this).attr("data-val");
+                // console.log(layers);
+                var x = ($(window).innerWidth() - event.pageX * layers) /100;
+                var y = ($(window).innerHeight() - event.pageY * layers) /100;
+                $(this).css("margin-left", x + "px").css("margin-top", y + "px");
+            })
+        })
+
+        var menu = ["I Love Donuts", "I Love Grapes", "I Love Flowers"]
+
+        var mySwiper = new Swiper('.swiper-container', {        
+            initialSlide: 2,
+            touchRation: 0,
+            autoplay: {
+                delay:5000,
+                disableOnInteraction : false
+            },
+            autoplayDisableOnInteraction: false,
+            effect:'fade',
+            speed: 1000,
+            
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                // Render the Bullet
+                renderBullet: function(index,className) {
+                    return '<span class="' + className + '">' + (menu[index]) + '</span>';
+                },
+            },
+            on: {
+                slideChangeTransitionStart: function(){
+                    $(".swiper-slide.swiper-slide-active h1").css("left","0px");
+                    $(".swiper-slide.swiper-slide-active .img-group").css("left","150px");
+                },
+                slideChange: function() {
+                    $(".swiper-slide.swiper-slide-active h1").css("left","100%");
+                    $(".swiper-slide.swiper-slide-active .img-group").css("left","100%");
+                }
+            }
+        });
+
+        $(".swiper-pagination .swiper-pagination-bullet:first-child").trigger("click")
+
+    </script>
+    
+</body>
+</html>
